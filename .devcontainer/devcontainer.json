@@ -1,0 +1,53 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/debian
+{
+  "name": "Concert (DEV)",
+  "build": {
+    // make context the workspace root, not .devcontainer folder
+    "context": "..",
+    "dockerfile": "../container.Dockerfile"
+  },
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "nodeGypDependencies": true,
+      "version": "lts"
+    }
+  },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [3000],
+  "customizations": {
+    "vscode": {
+      // This will only include some "essential" extensions. Other useful and opinionated ones like TailwindCSS or auto-close-tag
+      // will not be installed by default, since those can just be installed locally.
+      "extensions": [
+        "bungcip.better-toml", // better toml language support (optional)
+        "redhat.vscode-yaml", // better yaml language support (optional)
+        "DavidAnson.vscode-markdownlint", // markdown support (optional)
+        "EditorConfig.EditorConfig", // respects .editorconfig (must have)
+
+        "dbaeumer.vscode-eslint", // eslint support (must have)
+        "esbenp.prettier-vscode", // prettier support (must have)
+
+        "eamodio.gitlens", // better git functionality (optional)
+        "donjayamanne.githistory" // see git log and file history (optional)
+
+        // feel free to add others like:
+        // "Prisma.prisma",
+        // "GraphQL.vscode-graphql"
+        // "mtxr.sqltools"
+        // "svelte.svelte-vscode"
+        // "bradlc.vscode-tailwindcss"
+        // "Vue.volar"
+        // "WakaTime.vscode-wakatime"
+      ]
+    }
+  }
+
+  // Configure tool-specific properties.
+  // "customizations": {},
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+}
